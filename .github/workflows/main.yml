@@ -26,7 +26,6 @@ jobs:
           export FLYCTL_INSTALL="/home/runner/.fly"
           export PATH="$FLYCTL_INSTALL/bin:$PATH"
           fly version
-          fly auth login
           fly auth docker
           bash scripts/deploy.sh
         env:
