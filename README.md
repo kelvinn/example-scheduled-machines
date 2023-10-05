@@ -1,6 +1,11 @@
 # Background
 
-This is a demo repository on how to get scale-to-zero scheduled machines working on Fly.io
+Desired outcome: be able to run scheduled tasks on Fly.io, and have the machines scale-to-zero when not running.
+
+Why would you want to do this? My guess is that you have a hobby or side project that you wish to run peroidically, and do not want to have the machine running all the time. If I was needing to run something periodically as part of a product for a client then I would almost certainly follow the "Crontab with Supercronic" tutorial (https://fly.io/docs/app-guides/supercronic/).
+
+
+At some point in the future Fly.io will almost certainly add this capability in to the 'deploy' command, e.g. "fly deploy --schedule=hourly", but until then this is a guide on how I got this capability working.
 
 # Steps - Fly
 
