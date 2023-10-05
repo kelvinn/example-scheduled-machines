@@ -1,0 +1,16 @@
+# fly.toml app configuration file generated for example-scheduled-machines on 2023-10-05T10:27:09+11:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "example-scheduled-machines"
+primary_region = "syd"
+
+[build]
+
+[[services]]
+  protocol = ""
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
