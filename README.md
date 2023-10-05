@@ -23,6 +23,12 @@ fly launch
 
 The deploy will likely fail, and that's OK.
 
+We probably only want to have one machine running at any one time, so:
+
+```
+fly scale count 1
+```
+
 Next we need to get the machine id, so do a:
 
 ```
@@ -35,10 +41,10 @@ Take that Machine ID (NOT the Name) and add it as an environment variable so we 
 export MACHINE_ID=[the-machine-id-from-above]
 ```
 
-Set an initial TAG for the image
+This is a bit of a hack, as we'll use Github Actions next, but set an initial TAG for the image
 
 ```
-export TAG=0.0.1
+export GITHUB_RUN_NUMBER=0.1
 ```
 
 And now authenticate to fly:
