@@ -30,16 +30,16 @@ Take that Machine ID (NOT the Name) and add it as an environment variable so we 
 export MACHINE_ID=[the-machine-id-from-above]
 ```
 
-Now configure a token in Fly.io (https://fly.io/apps/example-scheduled-machines/tokens), and then add it as an environment variable. This allows us to push docker images directly to the fly registry.
+Set an initial TAG for the image
 
 ```
-export TOKEN="FlyV1 the_really_long_token="
+export TAG=0.0.1
 ```
 
 And now authenticate to fly:
 
 ```
-fly auth docker --access-token "$TOKEN"
+fly auth docker
 ```
 
 Finally, you can then trigger an initial deployment from CI/CD by calling deploy.sh
@@ -51,6 +51,12 @@ bash scripts/deploy.sh
 
 # Steps - Github Actions
 
- Take your MACHINE_ID and TOKEN and add them to "Actions secrets and variables" as a Repository Secret in Github (https://github.com/kelvinn/example-scheduled-machines/settings/secrets/actions)
+You will need to get a token to communicate with Fly. On your local machine, where you have already logged in, try:
 
- Update deploy.sh to use the MACHINE_ID and TOKEN from Github Actions
+```
+fly auth token
+```
+
+And add that as a Repository secret in Github Actions (https://github.com/kelvinn/example-scheduled-machines/settings/secrets/actions). You can find this under "Actions secrets and variables".
+
+While you're there add your MACHINE_ID in as another Repository Secret.
