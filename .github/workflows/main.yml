@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 env:
   TOKEN: ${{ secrets.TOKEN }}
@@ -11,6 +11,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    # if: github.event_name == 'push' # Skip on pull requests
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python 3.9
