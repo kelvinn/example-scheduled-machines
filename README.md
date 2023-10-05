@@ -69,4 +69,4 @@ Then under the "Actions secrets and variables" in Github Actions (https://github
 - MACHINE_ID --> The ID of the machine you deployed to initially
 - FLY_API_TOKEN --> The result from above
 
-Voila! Next commit and you should get your new image pushed to Fly, and it will run once per hour.
+Voila! Next commit and you should get your new image pushed to Fly, and the machine will auto start once per hour and sleep when not running.
