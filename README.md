@@ -15,11 +15,11 @@ First, set up a new app:
 fly launch
 ```
 
-? Would you like to copy its configuration to the new app? Yes
-? Choose an app name (leaving blank will default to 'example-scheduled-machines')
-? Would you like to set up a Postgresql database now? No
-? Would you like to set up an Upstash Redis database now? No
-? Would you like to deploy now? Yes
+- ? Would you like to copy its configuration to the new app? Yes
+- ? Choose an app name (leaving blank will default to 'example-scheduled-machines')
+- ? Would you like to set up a Postgresql database now? No
+- ? Would you like to set up an Upstash Redis database now? No
+- ? Would you like to deploy now? Yes
 
 The deploy will likely fail, and that's OK.
 
@@ -62,6 +62,11 @@ You will need to get a token to communicate with Fly. On your local machine, whe
 fly auth token
 ```
 
-And add that as a Repository secret in Github Actions (https://github.com/kelvinn/example-scheduled-machines/settings/secrets/actions). You can find this under "Actions secrets and variables".
+And keep the terminal open.
 
-While you're there add your MACHINE_ID in as another Repository Secret.
+Then under the "Actions secrets and variables" in Github Actions (https://github.com/kelvinn/example-scheduled-machines/settings/secrets/actions) add the following two items as Repository Secrets:
+
+- MACHINE_ID --> The ID of the machine you deployed to initially
+- FLY_API_TOKEN --> The result from above
+
+Voila! Next commit and you should get your new image pushed to Fly, and it will run once per hour.
