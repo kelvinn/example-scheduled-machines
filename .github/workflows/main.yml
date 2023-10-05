@@ -21,10 +21,10 @@ jobs:
       - name: Install Fly
         run: |
           curl -L https://fly.io/install.sh | sh
-          export FLYCTL_INSTALL="/home/runner/.fly"
-          export PATH="$FLYCTL_INSTALL/bin:$PATH"
       - name: Verify Fly is installed
         run: |
+          export FLYCTL_INSTALL="/home/runner/.fly"
+          export PATH="$FLYCTL_INSTALL/bin:$PATH"
           fly version
       - name: Login to Fly
         run: |
