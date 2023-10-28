@@ -1,2 +1,4 @@
 
-print("Hello, world! NOT 01HBYYGDKMVPSNJ6BCAFMCFZPG")
+from datetime import datetime
+
+print(f"Hello, world! Time of execution: {datetime.now()}")
